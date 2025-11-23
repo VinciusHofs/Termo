@@ -1,19 +1,18 @@
 package termo;
-import java.util.*;
 
 public class TermoGame {
     public static void main(String[] args) {
-        List<String> bancoPalavras = Arrays.asList(
-            "CASAL", "TREZE", "FALAR", "PEDRA", "LIVRO",
-            "ROSAO", "PLANO", "GASTO", "NIVEL", "SERIO"
-        );
+        System.out.println("Iniciando Jogo do Termo...");
 
-        Random random = new Random();
-        String palavraAleatoria = bancoPalavras.get(random.nextInt(bancoPalavras.size()));
+        // 1. Usa o BancoDePalavras (OO + Manipulação de Arquivos + Coleção)
+        BancoDePalavras banco = new BancoDePalavras();
 
+        // 2. Seleciona a palavra e cria o objeto PalavraSecreta
+        String palavraAleatoria = banco.selecionarPalavraAleatoria();
         PalavraSecreta palavra = new PalavraSecreta(palavraAleatoria);
-        Termo jogo = new Termo(palavra);
 
+        // 3. Inicia o Jogo
+        Termo jogo = new Termo(palavra);
         jogo.jogar();
     }
 }

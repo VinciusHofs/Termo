@@ -2,8 +2,8 @@ package termo;
 import java.util.Scanner;
 
 public class Termo {
-        private PalavraSecreta palavraSecreta;
-    private Avaliador avaliador;
+        private final PalavraSecreta palavraSecreta;
+    private final Avaliador avaliador;
     private int tentativasMax = 6;
 
     public Termo(PalavraSecreta palavra) {
@@ -15,7 +15,7 @@ public class Termo {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("=== JOGO TERMO ===");
-        System.out.println("Descubra a palavra de 5 letras! Você tem " + tentativasMax + " tentativas.\n");
+        System.out.println("Descubra o verbo de 5 letras! Você tem " + tentativasMax + " tentativas.\n");
 
         for (int i = 1; i <= tentativasMax; i++) {
             System.out.print("Tentativa " + i + ": ");
@@ -31,11 +31,11 @@ public class Termo {
             System.out.println(resultado + "\n");
 
             if (tentativa.equals(palavraSecreta.getPalavra())) {
-                System.out.println("🎉 PARABÉNS! Você acertou a palavra!");
+                System.out.println("PARABÉNS! Você acertou a palavra!");
                 return;
             }
         }
 
-        System.out.println("☹ Você perdeu! A palavra era: " + palavraSecreta.getPalavra());
+        System.out.println("Você perdeu! A palavra era: " + palavraSecreta.getPalavra());
     }
 }
